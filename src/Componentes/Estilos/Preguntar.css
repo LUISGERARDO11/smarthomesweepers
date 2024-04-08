@@ -1,0 +1,72 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .agregar-btn {
+    margin-bottom: 20px;
+  }
+  
+  .preguntas-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .columna {
+    flex: 1;
+  }
+  
+  .columna h2 {
+    text-align: center;
+  }
+  
+  .item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .item:last-child {
+    border-bottom: none;
+  }
+  
+  .acciones {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .editar-btn,
+  .eliminar-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .eliminar-btn {
+    background-color: #dc3545;
+  }
+  
+  .agregar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .agregar-btn:hover {
+    background-color: #0056b3;
+  }
+  

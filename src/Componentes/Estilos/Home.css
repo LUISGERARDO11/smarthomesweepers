@@ -1,0 +1,418 @@
+/* Estilos generales */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Encabezado */
+/* Secciones principales */
+
+.secciones {
+    margin: 20px 0;
+}
+
+.seccion {
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.seccion-titulo {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Productos destacados */
+
+
+/* Personalización adicional para la sección de productos destacados */
+
+.seccion.productos .seccion-titulo {
+    margin-top: 0;
+}
+
+.producto:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ... */
+
+/* Pie de página (opcional) */
+
+.footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto; /* Hace que el contenido adicional sea desplazable horizontalmente */
+    scroll-snap-type: x mandatory; /* Hace que cada imagen se "pegue" al desplazarse */
+    align-items: center;
+}
+
+.carousel-item {
+    flex: 0 0 auto; /* Evita que las imágenes se ajusten automáticamente */
+    scroll-snap-align: start; /* Alinea cada imagen al inicio del contenedor */
+    width: 100%; /* Hace que cada imagen ocupe el 100% del ancho del contenedor */
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%; /* Haz que las imágenes ocupen el 100% del ancho del contenedor */
+    height: calc(100vh - 80px); /* Haz que las imágenes ocupen el 100% de la altura de la ventana del navegador, menos la altura del encabezado */
+    object-fit: cover; /* Escala las imágenes para que cubran todo el contenedor sin deformar la imagen */
+    align-items: center;
+}
+
+/* Opcional: Ocultar la barra de desplazamiento */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    flex: 0 0 auto;
+}
+
+/* Ajuste para las imágenes del carrusel */
+.carousel-slide img {
+    max-width: 100%;
+    height: auto;
+}
+
+.indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: red; /* Cambia el color activo según tu preferencia */
+}
+
+.header {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.logo {
+    margin-right: 10px; /* Ajusta el margen entre la imagen y el texto según sea necesario */
+}
+
+.logo-text {
+    font-size: 16px; /* Tamaño de fuente para el texto del logo */
+}
+/* ... (otros estilos) ... */
+
+/* Estilos para la sección de novedades */
+.novedades {
+    margin-top: 20px;
+}
+
+.novedades h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center; /* Centra el título "Novedades" */
+}
+
+/* Contenedor de las tarjetas de novedades */
+.novedades-container {
+    display: flex; /* Muestra las tarjetas de novedades en línea */
+    overflow-x: auto; /* Permite desplazamiento horizontal si hay muchas tarjetas */
+    scroll-behavior: smooth; /* Añade desplazamiento suave */
+    -webkit-overflow-scrolling: touch; /* Desplazamiento suave en dispositivos iOS */
+}
+
+/* Estilos para cada tarjeta de novedad */
+.novedad-tarjeta {
+    flex: 0 0 auto; /* Las tarjetas no crecen ni se encogen */
+    width: 250px; /* Ancho de cada tarjeta */
+    margin-right: 20px; /* Espacio entre las tarjetas */
+    padding: 10px;
+    border: none; /* Oculta el borde de la tarjeta */
+}
+
+/* ... (otros estilos) ... */
+
+.flechas {
+    margin-top: 10px;
+}
+
+.flechas button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos específicos para las flechas izquierda y derecha */
+.flecha-izquierda {
+    margin-right: 10px;
+}
+
+.flecha-derecha {
+    margin-left: 10px;
+}
+
+/* Estilos para el contenedor de las flechas y el carrusel de novedades */
+.novedades-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Estilos para las flechas */
+.flecha-izquierda,
+.flecha-derecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.flecha-izquierda {
+    left: 0;
+}
+
+.flecha-derecha {
+    right: 0;
+}
+
+/* Estilos para el carrusel de novedades */
+.novedades-carousel {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.novedad-tarjeta {
+    margin-right: 40px;
+    flex-shrink: 0;
+}
+
+/* Oculta la barra de desplazamiento horizontal */
+.novedades-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.otras-imagenes-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+.otras-imagenes-container img {
+    width: 300px; /* Ajusta el ancho según sea necesario */
+    height: auto; /* Mantén la proporción de aspecto */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+.otras-imagenes-container img {
+    margin: 0 10px; /* Ajusta según sea necesario */
+}
+
+.nuestros-clientes {
+    margin-top: 50px; /* Espacio superior */
+    text-align: center; /* Centrar el contenido horizontalmente */
+}
+
+.clientes-container {
+    display: flex; /* Usar flexbox para alinear las tarjetas */
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.cliente-tarjeta {
+    width: 300px; /* Ancho de las tarjetas */
+    padding: 20px; /* Espacio interno */
+    background-color: #f8f8f8; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.cliente-tarjeta img {
+    width: 100%; /* Ajustar la imagen al ancho de la tarjeta */
+    border-radius: 30px; /* Bordes redondeados para la imagen */
+}
+
+.cliente-tarjeta h3 {
+    margin-top: 15px; /* Espacio superior */
+}
+
+.cliente-tarjeta p {
+    margin-top: 10px; /* Espacio superior */
+    color: #666; /* Color del texto */
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.nav-footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-footer li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.redes-sociales img {
+    width: 30px; /* Ajusta el tamaño de los logos de las redes sociales */
+    margin-left: 10px; /* Ajusta el espacio entre los logos */
+}
+
+.nav-footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a vertical */
+}
+
+.nav-footer li {
+    margin-bottom: 10px; /* Ajusta el espacio entre elementos */
+}
+
+.ubicacion-derechos {
+    margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+.carousel-container {
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.carousel {
+    display: flex; /* Mostrar los elementos en línea */
+    transition: transform 0.5s ease; /* Transición suave para el desplazamiento */
+}
+
+.carousel-item {
+    flex: 0 0 auto; /* Hace que los elementos no se expandan para llenar el contenedor */
+}
+
+.banner {
+    width: 100%; /* Ajusta el ancho del banner */
+}
+
+.banner .carousel-container {
+    width: 100%; /* Ajusta el ancho del contenedor del carrusel */
+    margin: 0 auto; /* Centra el contenedor del carrusel */
+}
+
+.indicators {
+    margin-top: 10px; /* Espacio entre el carrusel y los indicadores */
+    text-align: center; /* Centra los indicadores */
+}
+
+.indicator {
+    display: inline-block; /* Muestra los indicadores en línea */
+    width: 10px; /* Tamaño del indicador */
+    height: 10px;
+    margin: 0 5px; /* Espacio entre los indicadores */
+    border-radius: 50%; /* Hace que los indicadores sean redondeados */
+    background-color: gray; /* Color del indicador no activo */
+}
+
+.indicator.active {
+    background-color: black; /* Color del indicador activo */
+}
+
+/* Estilos específicos para las imágenes que se mueven */
+.movable {
+    animation: moveImages 2s linear infinite; /* Animación para mover las imágenes */
+}
+
+@keyframes moveImages {
+    0% {
+        transform: translateX(0); /* Comienza desde la posición original */
+    }
+    100% {
+        transform: translateX(-100%); /* Se mueve completamente hacia la izquierda */
+    }
+}
+/* Estilos para las imágenes que se moverán horizontalmente */
+.movable-images-container {
+    overflow: hidden; /* Oculta el desbordamiento */
+    white-space: nowrap; /* Evita que las imágenes se envuelvan */
+}
+
+.movable-images-container img {
+    display: inline-block; /* Muestra las imágenes en línea */
+    max-width: 100%; /* Ajusta el ancho máximo */
+    height: auto; /* Mantiene la proporción de aspecto */
+    vertical-align: middle; /* Alinea verticalmente las imágenes */
+}
+
+/* Estilos específicos para las imágenes del carrusel */
+.banner-images-container {
+    display: flex; /* Muestra las imágenes en línea */
+    transition: transform 0.5s ease; /* Transición suave para el desplazamiento */
+}
+
+.banner-images-container img {
+    flex: 0 0 auto; /* Evita que las imágenes se ajusten automáticamente */
+    width: 100%; /* Hace que cada imagen ocupe el 100% del ancho del contenedor */
+    max-width: none; /* Elimina el máximo ancho para evitar recorte */
+    height: auto; /* Mantiene la proporción de aspecto */
+    object-fit: cover; /* Escala las imágenes para que cubran todo el contenedor sin deformar la imagen */
+}
+
+/* Oculta la barra de desplazamiento horizontal */
+.banner-images-container::-webkit-scrollbar {
+    display: none;
+}

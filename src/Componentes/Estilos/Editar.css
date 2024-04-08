@@ -1,0 +1,103 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 80px;
+    text-align: center;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form1 {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #020303;
+    border-radius: 30px;
+
+  }
+  .form2 {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #020303;
+    border-radius: 30px;
+
+  }
+  .form3 {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #020303;
+    border-radius: 30px;
+
+  }
+  .form4 {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #020303;
+    border-radius: 30px;
+
+  }
+  
+  
+  .form-group {
+    margin-bottom: 15px;
+    margin: 20px;
+
+  }
+  .form-group5{
+    width: 420px;
+    margin: 40px;
+
+
+
+  }
+  
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group textarea {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group textarea {
+    height: 100px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cancel-button,
+  .register-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background-color: #ccc;
+    color: #fff;
+  }
+  
+  .register-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  

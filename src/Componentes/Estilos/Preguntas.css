@@ -1,0 +1,75 @@
+.container {
+  max-width: 800px;
+  margin: 80px auto 0; /* Reducir el margen superior de 150px a 80px */
+  padding: 20px;
+}
+
+.pre{
+  margin-top: 150px;
+}
+.re{
+  text-align: end;
+  
+}
+.pri {
+  margin-bottom: 20px;
+}
+.faq-section p {
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.faq-container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el icono y la pregunta */
+}
+
+.toggle-icon {
+  margin-right: 10px; /* Espacio entre el icono y la pregunta */
+  color: #043464; /* Color normal del icono */
+}
+
+.toggle-icon.active {
+  color: #FF6600; /* Color del icono cuando está desplegado */
+}
+
+.toggle-icon:hover {
+  cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
+}
+
+
+h2 {
+  font-size: 20px; /* Tamaño de la pregunta */
+}
+
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+

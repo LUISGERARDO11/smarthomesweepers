@@ -1,0 +1,52 @@
+.header {
+    background-color: #10186d; /* Color de fondo del encabezado */
+    color: #fff; /* Color del texto del encabezado */
+    padding: 8px 5px; /* Espaciado interno del encabezado */
+    position: fixed; /* Hace que el encabezado sea fijo */
+    top: 0; /* Mantiene el encabezado en la parte superior de la página */
+    width: 100%; /* Ajusta el ancho del encabezado al 100% */
+    z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+  }
+  
+  .nav ul {
+    list-style-type: none; /* Elimina los puntos de lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+  }
+  
+  .nav ul li {
+    display: inline; /* Muestra los elementos de la lista en línea */
+    margin-right: 40px; /* Agrega un espacio entre los elementos de la lista */
+  }
+  
+  .nav ul li a {
+    color: #fff; /* Color del texto de los enlaces */
+    text-decoration: none; /* Elimina la decoración de subrayado de los enlaces */
+  }
+  
+  .logo-container {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+  
+  .logo {
+    margin-right: 10px; /* Agrega espacio entre el logotipo y el texto */
+  }
+  
+  .logo img {
+    height: 80px; /* Establece la altura del logotipo */
+    width: 100px;
+  }
+  .logo-text {
+    font-size: 40px; /* Ajusta el tamaño del texto del logotipo según tu preferencia */
+    font-weight: bold; /* Establece el peso del texto del logotipo a negrita */
+  }
+  
+
+  
+  .nav {
+    float: right;
+    margin: 10px 20px;
+  }
+  
+
+  

@@ -1,0 +1,128 @@
+/* ContactoAdmin.css */
+
+.contactos-container {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pro {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: #333;
+}
+
+form {
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.button-agregar {
+    background-color: #28a745;
+}
+
+.button-editar {
+    background-color: #ffc107;
+}
+
+.button-eliminar {
+    background-color: #dc3545;
+    margin-left: 10px; /* Ajuste del margen para separar el botón "Eliminar" */
+}
+
+.contact-list {
+    margin-top: 30px;
+}
+
+.contact-list h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-list li:hover {
+    background-color: #f7f7f7;
+}
+
+.contact-list li .button-container {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Alineación vertical */
+}

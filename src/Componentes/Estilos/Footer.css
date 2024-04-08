@@ -1,0 +1,47 @@
+.footer {
+  background-color: #10186d;
+  color: #fff;
+  padding: 20px 10px; /* Reducción del espaciado interno en pantallas más pequeñas */
+}
+
+.nav-footer {
+  margin-bottom: 10px; /* Reducción del espacio entre el menú de navegación y las redes sociales en pantallas más pequeñas */
+}
+
+.nav-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-footer li {
+  margin-bottom: 5px; /* Reducción del espacio entre elementos de la lista en pantallas más pequeñas */
+}
+
+.redes-sociales {
+  display: flex; /* Utilizar flexbox para alinear los iconos de redes sociales horizontalmente */
+  justify-content: center; /* Centrar los iconos horizontalmente */
+  margin-bottom: 10px; /* Reducción del espacio entre los iconos y el texto en pantallas más pequeñas */
+}
+
+.redes-sociales img {
+  width: 25px; /* Reducción del tamaño de los iconos de redes sociales en pantallas más pequeñas */
+  margin-right: 5px; /* Reducción del espacio entre los iconos */
+}
+
+.ubicacion-derechos {
+  text-align: center;
+}
+
+.ubicacion-derechos p {
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .ubicacion-derechos {
+    text-align: left; /* Alinear el texto a la izquierda en pantallas más pequeñas */
+  }
+
+  .ubicacion-derechos p {
+    margin: 5px 0;
+  }
+}

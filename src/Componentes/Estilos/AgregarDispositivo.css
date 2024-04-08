@@ -1,0 +1,61 @@
+.agregar-dispositivo {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    padding-left: 0; /* Ajustar el padding para dispositivos pequeños */
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los botones se ajusten en dispositivos pequeños */
+    justify-content: space-between;
+}
+
+.cancel-button,
+.add-button {
+    width: 100%; /* Ajustar el ancho de los botones para dispositivos pequeños */
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #ECF0F1;
+    border: 1px solid #043464;
+    color: #043464;
+}
+
+.add-button {
+    background-color: #FF6600;
+    border: 1px solid #FF6600;
+    color: #ECF0F1;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 768px) {
+    .agregar-dispositivo {
+        max-width: 500px; /* Ajustar el ancho máximo para dispositivos más grandes */
+    }
+}
