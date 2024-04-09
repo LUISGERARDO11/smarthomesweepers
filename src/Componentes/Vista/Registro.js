@@ -1,223 +1,105 @@
-import React, { useState, useRef } from 'react';
-import '../Estilos/Registro.css';
-import { Toast } from 'primereact/toast';
-import { Button } from 'primereact/button';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-const Registro = () => {
-  const [step, setStep] = useState(1);
+const PrimerPasoForm = () => {
+    const [nombre, setNombre] = useState('');
+    const [correo, setCorreo] = useState('');
+    const [numero, setNumero] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
-  // Primer paso
-  const [nombre, setNombre] = useState('');
-  const [apellidos, setApellidos] = useState('');
-  const [correo, setCorreo] = useState('');
-  const [telefono, setTelefono] = useState('');
-
-  // Segundo paso
-  const [pais, setPais] = useState('');
-  const [estado, setEstado] = useState('');
-  const [ciudad, setCiudad] = useState('');
-  const [colonia, setColonia] = useState('');
-  const [calle, setCalle] = useState('');
-  const [codigoPostal, setCodigoPostal] = useState('');
-  const [referencia, setReferencia] = useState('');
-
-  // Tercer paso
-  const [password, setPassword] = useState('');
-  const [pregunta, setPregunta] = useState('');
-  const [respuesta, setRespuesta] = useState('');
-
-  const toast = useRef(null);
-
-  const handlePrev = () => {
-    if (step > 1) {
-      setStep(prev => prev - 1);
-    }
-  };
-
-  const validarCorreo = (correo) => {
-    const regexCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!regexCorreo.test(correo)) {
-      return 'El correo electrónico ingresado no es válido';
-    }
-return '';
-  };
-
-  const validarTelefono = (telefono) => {
-    const regexTelefono = /^[0-9]{10}$/;
-    if (!regexTelefono.test(telefono)) {
-      return 'El número de teléfono ingresado no es válido';
-    }
-    
-    return '';
-  };
-
-  const handleNext = () => {
-    let isValid = true;
-
-    switch (step) {
-      case 1:
-        if (!nombre) {
-
-      toast.current.show({ severity: 'error', summary: 'Error', detail: 'Por favor, ingresa tu nombre' });
-
-          
-        } else if (!apellidos) {
-      toast.current.show({ severity: 'error', summary: 'Error', detail: 'ingresa tus apellidos' });
-
-        } else if (!validarCorreo(correo)) {
-      toast.current.show({ severity: 'error', summary: 'Error', detail: 'ingresa tus correo' });
-
-          // errorMessage = validarCorreo(correo);
-
-        } else if (!validarTelefono(telefono)) {
-      toast.current.show({ severity: 'error', summary: 'Error', detail: 'ingresa tus numero' });
-
-          // errorMessage = validarTelefono(telefono);
+    useEffect(() => {
+        if (location.state) {
+            const { nombre, correo, numero } = location.state;
+            setNombre(nombre || '');
+            setCorreo(correo || '');
+            setNumero(numero || '');
         }
-        isValid = nombre && apellidos && validarCorreo(correo) && validarTelefono(telefono);
-        break;
+    }, [location.state]);
 
-
-      case 2:
-        isValid = nombre && apellidos && correo && telefono;
-        break;
-      case 3:
-        isValid = pais && estado && ciudad && colonia && calle && codigoPostal && referencia;
-        break;
-      case 4:
-        isValid = password && pregunta && respuesta;
-        break;
-      default:
-        break;
-    }
-
-    if (isValid && step < 3) {
-      setStep(prev => prev + 1);
-    } else if (!isValid) {
-      toast.current.show({ severity: 'warn', summary: 'Advertencia', detail: 'Por favor, completa todos los campos antes de continuar' });
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Validar campos antes de enviar
-    if (!nombre || !apellidos || !correo || !telefono || !pais || !estado || !ciudad || !colonia || !calle || !codigoPostal || !password || !pregunta || !respuesta) {
-      toast.current.show({ severity: 'error', summary: 'Error', detail: 'Todos los campos son obligatorios' });
-
-      return;
-    }
-
-    // Aquí puedes manejar la lógica de enviar el formulario según los datos que necesites
-
-    toast.current.show({ severity: 'success', summary: 'Éxito', detail: 'Registro exitoso' });
-  };
-
-  return (
-    <div>
-      <h1>Registro</h1>
-
-      <div className="steps">
-        <div className={`step ${step === 1 ? 'active' : ''}`} onClick={() => setStep(1)}>1</div>
-        <div className={`step ${step === 2 ? 'active' : ''}`} onClick={() => setStep(2)}>2</div>
-        <div className={`step ${step === 3 ? 'active' : ''}`} onClick={() => setStep(3)}>3</div>
-      </div>
-
-      <Toast ref={toast} />
-
-      <div>
-        <form onSubmit={handleSubmit}>
-          {step === 1 && (
-            <div>
-              <div className="input-group">
-                <label>Nombre</label>
-                <input placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Apellidos</label>
-                <input placeholder="Apellidos" value={apellidos} onChange={(e) => setApellidos(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Correo Electrónico</label>
-                <input type='email' placeholder="Correo electrónico" value={correo} onChange={(e) => setCorreo(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Teléfono</label>
-                <input type='number' placeholder="Teléfono" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
-              </div>
-            </div>
-          )}
-
-          {step === 2 && (
-            <div>
-              <div className="input-group">
-                <label>Pais</label>
-                <input placeholder="País" value={pais} onChange={(e) => setPais(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Estado</label>
-                <input placeholder="Estado" value={estado} onChange={(e) => setEstado(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Ciudad</label>
-                <input placeholder="Ciudad" value={ciudad} onChange={(e) => setCiudad(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Colonia</label>
-                <input placeholder="Colonia" value={colonia} onChange={(e) => setColonia(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Calle</label>
-                <input placeholder="Calle" value={calle} onChange={(e) => setCalle(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Código Postal</label>
-                <input placeholder="Código Postal" value={codigoPostal} onChange={(e) => setCodigoPostal(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Referencia</label>
-                <input placeholder="Referencia" value={referencia} onChange={(e) => setReferencia(e.target.value)} />
-              </div>
-            </div>
-          )}
-
-          {step === 3 && (
-            <div>
-              <div className="input-group">
-                <label>Contraseña</label>
-                <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
-              </div>
-              <div className="input-group">
-                <label>Selecciona una pregunta</label>
-                <select value={pregunta} onChange={(e) => setPregunta(e.target.value)}>
-                  <option value="">Selecciona una pregunta</option>
-                  <option value="¿Cuál es el nombre de tu primera mascota?">¿Cuál es el nombre de tu primera mascota?</option>
-                  <option value="¿Cuál es tu canción favorita?">¿Cuál es tu canción favorita?</option>
-                  <option value="¿En qué cuidad nació tu madre?">¿En qué cuidad nació tu madre?</option>
-                  <option value="¿Cuál es tu comida favorita
-?">¿Cuál es tu comida favorita?</option>
-                  <option value="¿Cuál es el nombre de tu mejor amigo de la infancia?">¿Cuál es el nombre de tu mejor amigo de la infancia?</option>
-                </select>
-              </div>
-              <div className="input-group">
-                <label>Respuesta</label>
-                <input placeholder="Respuesta" value={respuesta} onChange={(e) => setRespuesta(e.target.value)} />
-              </div>
-            </div>
-          )}
-
-          <Toast ref={toast} />
-          <div className="buttons">
-            {step !== 1 && <button type="button" onClick={handlePrev}>Anterior</button>}
-            {step !== 3 ?
-              <button type="button" onClick={handleNext}>Siguiente</button> :
-              <button type="submit">Registrarse</button>
+    const handleNext = async () => {
+        if (nombre.trim() === '' || correo.trim() === '' || numero.trim() === '') {
+            alert('Por favor, complete todos los campos.');
+            return;
+        }
+    
+        if (!correo.includes('@')) {
+            alert('Ingrese un correo electrónico válido.');
+            return;
+        }
+    
+        if (!/^[\d]{10}$/.test(numero)) {
+            alert('Ingrese un número de teléfono válido (10 dígitos exactos).');
+            return;
+        }
+    
+        try {
+            // Realizar la solicitud al servidor para verificar si existe un usuario con el correo proporcionado
+            const response = await fetch(`https://apismartsweepers.vercel.app/api/usuarios/email/${correo}`);
+            const data = await response.json();
+    
+            if (data.exists) {
+                // Si existe un usuario con el correo proporcionado, mostrar una alerta y no permitir continuar
+                alert('Ya existe un usuario con ese correo electrónico. Por favor, utilice otro correo electrónico.');
+            } else {
+                // Si no existe un usuario con el correo proporcionado, continuar al siguiente paso del formulario
+                navigate('/SegundoPasoForm', {
+                    state: {
+                        nombre,
+                        correo,
+                        numero
+                    }
+                });
             }
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+        } catch (error) {
+            console.error('Error al verificar el correo electrónico:', error);
+            alert('Error al verificar el correo electrónico. Por favor, inténtalo de nuevo más tarde.');
+        }
+    };
+
+    return (
+        <div style={{ backgroundColor: '#ECF0F1', marginTop: 40, padding: '0 20px' }}>
+            <h1 style={{ fontSize: 40, fontWeight: 'bold', textAlign: 'center' }}>Registro</h1>
+
+            <p style={{ fontSize: 24, paddingTop: 10, textAlign: 'center', paddingBottom: 15, fontWeight: 'bold' }}>Crea una nueva cuenta</p>
+            
+            <p style={{ fontSize: 24, paddingTop: 10, textAlign: 'center', paddingBottom: 15, fontWeight: 'bold' }}>Información personal</p>
+            <p style={{ fontSize: 17, textAlign: 'center', paddingBottom: 15, fontWeight: 'bold' }}>1 de 3</p>
+            <div style={{ marginBottom: 20 }}>
+                <input
+                    style={{ backgroundColor: '#fff', borderRadius: 5, padding: '12px 10px', marginBottom: 15, width: '100%', boxSizing: 'border-box' }}
+                    placeholder="Nombre"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                />
+                <input
+                    style={{ backgroundColor: '#fff', borderRadius: 5, padding: '12px 10px', marginBottom: 15, width: '100%', boxSizing: 'border-box' }}
+                    placeholder="Correo electrónico"
+                    type="email"
+                    value={correo}
+                    onChange={(e) => setCorreo(e.target.value)}
+                />
+                <input
+                    style={{ backgroundColor: '#fff', borderRadius: 5, padding: '12px 10px', marginBottom: 15, width: '100%', boxSizing: 'border-box' }}
+                    placeholder="Número de teléfono"
+                    type="tel"
+                    pattern="[0-9]{10}"
+                    value={numero}
+                    onChange={(e) => setNumero(e.target.value)}
+                />
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                <p style={{ backgroundColor: '#ECF0F1', borderRadius: 5, padding: '12px 20px', borderWidth: 1, borderColor: '#043464', cursor: 'pointer' }}>
+                    <Link to={'/Login'}>Cancelar</Link>
+                </p>
+                <div style={{ width: 30 }} />
+                <button style={{ backgroundColor: '#043464', borderRadius: 5, padding: '12px 20px', borderWidth: 1, borderColor: '#ECF0F1', color: '#ECF0F1', cursor: 'pointer' }} onClick={handleNext}>
+                    Siguiente &gt;
+                </button>
+            </div>
+        </div>
+    );
 };
 
-export default Registro;
+export default PrimerPasoForm;

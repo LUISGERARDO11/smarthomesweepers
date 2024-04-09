@@ -8,6 +8,9 @@ import Productos from './Componentes/Vista/Productos';
 import Detalle from './Componentes/Vista/Detalle';
 import Login from './Componentes/Vista/Login';
 import Registro from './Componentes/Vista/Registro';
+import SegundoPasoForm from './Componentes/Vista/SegundoPasoForm';
+import TercerPasoForm from './Componentes/Vista/TercerPasoForm';
+
 import Footer from './Componentes/Vista/Footer';
 import Preguntas from './Componentes/Vista/Preguntas';
 import QuienesSomos from './Componentes/Vista/QuienesSomos';
@@ -60,6 +63,10 @@ function App() {
             <Route path="/Perfil" element={<Perfil />} />
             <Route path="/Login" element={<Login setUserType={setUserType} />} />
             <Route path="/Registro" element={<Registro />} />
+            <Route path="/SegundoPasoForm" element={<SegundoPasoForm />} />
+            <Route path="/TercerPasoForm" element={<TercerPasoForm />} />
+
+
             <Route path="/Preguntas" element={<Preguntas />} />
             <Route path="/QuienesSomos" element={<QuienesSomos />} />
             <Route path="/Contacto" element={<Contacto />} />
