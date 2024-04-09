@@ -68,15 +68,16 @@ function VerTodosLosDispositivos() {
           </tr>
         </thead>
         <tbody>
-          {usuariosConDispositivos.map((usuario) => (
+        {usuariosConDispositivos.map((usuario) => (
             usuario.dispositivos.map((dispositivo, index) => (
               <tr key={index}>
-                <td>{dispositivo.clave}</td>
-                <td>{dispositivo.nombre}</td>
+                <td>{dispositivo?.clave}</td>
+                <td>{dispositivo?.nombre}</td>
                 <td>{usuario.nombre_completo}</td>
               </tr>
             ))
           ))}
+
         </tbody>
       </table>
     </div>

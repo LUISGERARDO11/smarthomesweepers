@@ -44,7 +44,7 @@ const Login = ({ setUserType }) => {
         setUserType(userType);  // Actualiza el userType al iniciar sesión
 
         if (userType === 'cliente') {
-          navigate('/UsuarioLogueado');
+          navigate('/Home');
         } else if (userType === 'admin') {
           navigate('/UsuarioLogueadoAdmin');
         }

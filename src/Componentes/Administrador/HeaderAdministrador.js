@@ -24,7 +24,7 @@ function HeaderAdministrador({ setUserType }) {
       </div>
       <nav className="nav">
         <ul>
-          <li><Link to={'/Home'}>Home</Link></li>
+          <li><Link to={'/UsuarioLogueadoAdmin'}>Home</Link></li>
           <li><Link to={'/Asignacion'}>Asignacion</Link></li>
           <li><Link to={'/CrudProductos'}>Crud Productos</Link></li>
           <li><Link to={'/CrudContacto'}> Crud Contacto</Link></li>
