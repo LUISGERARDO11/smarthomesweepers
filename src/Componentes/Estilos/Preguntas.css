@@ -10,12 +10,15 @@
 .re{
   text-align: end;
   
+  
 }
 .pri {
   margin-bottom: 20px;
 }
 .faq-section p {
   text-align: left; /* Alinea el texto a la izquierda */
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 

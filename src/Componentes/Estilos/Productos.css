@@ -1,5 +1,5 @@
 .productos-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   margin-top: 80px;
@@ -19,8 +19,8 @@
 }
 
 .tarjeta img {
-  width: 100%;
-  height: auto;
+  width: 400px; /* Ancho estándar */
+  height: 200px; /* Alto estándar */
   border-radius: 5px;
 }
 

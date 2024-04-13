@@ -8,13 +8,13 @@
     margin-bottom: 20px;
 }
 
-label {
+.form-lbl {
     display: block;
     margin-bottom: 5px;
     padding-left: 0; /* Ajustar el padding para dispositivos pequeños */
 }
 
-input {
+.form-inp {
     width: 90%;
     padding: 8px;
     border: 1px solid #ccc;

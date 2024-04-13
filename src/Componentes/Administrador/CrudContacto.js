@@ -38,29 +38,6 @@ function CrudContacto() {
       });
   }, []);
 
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(
-        `https://apismartsweepers.vercel.app/api/contacto/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Error al eliminar el contacto");
-      }
-
-      alert("Contacto eliminado exitosamente");
-      setContactos(contactos.filter(contacto => contacto._id !== id));
-    } catch (error) {
-      console.error("Error al eliminar el contacto:", error);
-      alert(error.message || "Error en eliminación de contacto");
-    }
-  };
-
   const handleEdit = (id) => {
     const contactoEdit = contactos.find(contacto => contacto._id === id);
     if (contactoEdit) {
@@ -271,30 +248,25 @@ function CrudContacto() {
           </div>
         </div>
       )}
-
-      <button onClick={() => {
-        setShowModal(true);
-        setEditingContacto(null);
-      }}>Agregar Contacto</button>
-
-      <div className="contact-list">
-        <h3>Lista de Contactos</h3>
-        <ul>
-          {loading ? (
-            <li>Cargando...</li>
-          ) : error ? (
-            <li>Error: {error}</li>
-          ) : (
-            contactos.map(contacto => (
-              <li key={contacto._id}>
-                {contacto.nombre_empresa} - {contacto.telefono}
-                <button onClick={() => handleEdit(contacto._id)}>Editar</button>
-                <button onClick={() => handleDelete(contacto._id)}>Eliminar</button>
-              </li>
-            ))
-          )}
-        </ul>
-      </div>
+      {!editingContacto && (
+        <div className="contact-list">
+          <h3>Lista de Contactos</h3>
+          <ul>
+            {loading ? (
+              <li>Cargando...</li>
+            ) : error ? (
+              <li>Error: {error}</li>
+            ) : (
+              contactos.map(contacto => (
+                <li key={contacto._id}>
+                  {contacto.nombre_empresa} - {contacto.telefono}
+                  <button onClick={() => handleEdit(contacto._id)}>Editar</button>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

@@ -71,14 +71,17 @@ const Login = ({ setUserType }) => {
       <p className="subtext">Inicia sesión en tu cuenta</p>
       <div className="form-container">
         <label htmlFor="email">Correo:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Ingrese su correo electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div className="password-input-container">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ingrese su correo electrónico"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-log-input "
+          />
+         </div>
 
         <label htmlFor="password">Contraseña:</label>
         <div className="password-input-container">
@@ -89,11 +92,13 @@ const Login = ({ setUserType }) => {
             placeholder="Ingrese su contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="form-log-pass-input"
           />
           <span className="password-toggle-icon" onClick={togglePasswordVisibility}>
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
+
 
         {error && <p className="error-message">{error}</p>}
 

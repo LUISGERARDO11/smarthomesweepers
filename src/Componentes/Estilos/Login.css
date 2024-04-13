@@ -1,5 +1,5 @@
 .login-container {
-    margin-top: 100px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,6 +22,7 @@
     border-radius: 10px;
     padding: 80px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
   }
   
   .label2 {
@@ -30,13 +31,20 @@
     margin-bottom: 5px;
   }
   
-  input {
-    width: 150%;
-    margin-bottom: 10px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+  .form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block; /* Para que los labels se muestren en una línea separada */
+    text-align: left; /* Para alinear los labels a la izquierda */
   }
+  
+  .form-container input {
+    width: calc(100% - 20px); /* Resta el ancho de padding de los inputs */
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+  }
+  
   
   .forgot-password {
     margin-top: 10px;
@@ -74,3 +82,15 @@
     cursor: not-allowed;
     opacity: 0.5;
   }
+  .password-input-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .password-toggle-icon {
+    position: absolute;
+    top: calc(100% + 5px); /* Ajusta este valor según el espacio deseado entre el input y el icono */
+    left: 5px; /* Ajusta este valor según la posición horizontal deseada */
+    cursor: pointer;
+  }
+  

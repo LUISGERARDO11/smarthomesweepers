@@ -87,13 +87,13 @@ function AgregarDispositivo({ onAgregarDispositivo, onCancel, idUser }) {
       <h2>Agregar Dispositivo</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group2">
-          <label htmlFor="nombre">Nombre:</label>
-          <input type="text" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} className={!nombreValidado ? 'invalid' : ''} placeholder="Ej. Mi aspiradora" />
+          <label  className="form-lbl" htmlFor="nombre">Nombre:</label>
+          <input type="text" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} className={!nombreValidado ? 'invalid form-inp' : 'form-inp'} placeholder="Ej. Mi aspiradora" />
           {!nombreValidado && <span className="error">El nombre es requerido</span>}
         </div>
         <div className="form-group2">
-          <label htmlFor="clave">Clave:</label>
-          <input type="text" id="clave" value={clave} onChange={handleChangeClave} className={!claveValidado ? 'invalid' : ''} placeholder="Ej. 00aa01" />
+          <label  className="form-lbl"  htmlFor="clave">Clave:</label>
+          <input  type="text" id="clave" value={clave} onChange={handleChangeClave} className={!claveValidado ? 'invalid form-inp' : 'form-inp'} placeholder="Ej. 00aa01" />
           {!claveValidado && <span className="error">La clave es requerida y debe contener solo letras mayúsculas, minúsculas y números (máximo 6 caracteres)</span>}
         </div>
         <div className="form-actions">

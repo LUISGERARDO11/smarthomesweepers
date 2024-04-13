@@ -26,10 +26,10 @@ function HeaderAdministrador({ setUserType }) {
         <ul>
           <li><Link to={'/UsuarioLogueadoAdmin'}>Home</Link></li>
           <li><Link to={'/Asignacion'}>Asignacion</Link></li>
-          <li><Link to={'/CrudProductos'}>Crud Productos</Link></li>
-          <li><Link to={'/CrudContacto'}> Crud Contacto</Link></li>
-          <li><Link to={'/CrudPoliticas'}> CrudPoliticas</Link></li>
-          <li><Link to={'/CrudPreguntas'}> CrudPreguntas</Link></li>
+          <li><Link to={'/CrudProductos'}>Productos</Link></li>
+          <li><Link to={'/CrudContacto'}>Contacto</Link></li>
+          <li><Link to={'/CrudPoliticas'}>Politicas</Link></li>
+          <li><Link to={'/CrudPreguntas'}>Preguntas</Link></li>
           <li><button onClick={handleLogout}>Cerrar sesión</button></li>
         </ul>
       </nav>

@@ -44,4 +44,7 @@
   .icon svg {
     margin-right: 10px;
   }
+  .close {
+    cursor: pointer;
+  }
   

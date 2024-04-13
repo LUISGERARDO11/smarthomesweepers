@@ -33,26 +33,33 @@ function CrudPoliticas() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(
-        `https://apismartsweepers.vercel.app/api/politica/${id}`,
-        {
-          method: "DELETE",
+        // Mostrar alerta de confirmación antes de eliminar
+        const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar esta política?");
+        if (!confirmDelete) {
+            return; // Cancelar la operación si el usuario no confirma la eliminación
         }
-      );
 
-      const data = await response.json();
+        const response = await fetch(
+            `https://apismartsweepers.vercel.app/api/politica/${id}`,
+            {
+                method: "DELETE",
+            }
+        );
 
-      if (!response.ok) {
-        throw new Error(data.message || "Error al eliminar la política");
-      }
+        const data = await response.json();
 
-      alert("Política eliminada exitosamente");
-      setPoliticas(politicas.filter(politica => politica._id !== id));
+        if (!response.ok) {
+            throw new Error(data.message || "Error al eliminar la política");
+        }
+
+        alert("Política eliminada exitosamente");
+        setPoliticas(politicas.filter(politica => politica._id !== id));
     } catch (error) {
-      console.error("Error al eliminar la política:", error);
-      alert(error.message || "Error en eliminación de política");
+        console.error("Error al eliminar la política:", error);
+        alert(error.message || "Error en eliminación de política");
     }
-  };
+};
+
 
   const handleEdit = (id) => {
     const politicaEdit = politicas.find(politica => politica._id === id);
@@ -156,6 +163,7 @@ function CrudPoliticas() {
                 name="descripcion"
                 value={formData.descripcion}
                 onChange={handleChange}
+                style={{ width: "100%", height:"150px" }}
                 required
               ></textarea>
             </div>
@@ -176,12 +184,17 @@ function CrudPoliticas() {
           ) : (
             politicas.map(politica => (
               <li key={politica._id}>
-                <strong>{politica.titulo}</strong>
-                <p>{politica.descripcion}</p>
-                <button onClick={() => handleEdit(politica._id)}>Editar</button>
-                <button onClick={() => handleDelete(politica._id)}>Eliminar</button>
+                <div className="politica-container2">
+                  <strong>{politica.titulo}</strong>
+                  <p>{politica.descripcion}</p>
+                </div>
+                
+                  <button onClick={() => handleEdit(politica._id)}>Editar</button>
+                  <button onClick={() => handleDelete(politica._id)}>Eliminar</button>
+              
               </li>
             ))
+            
           )}
         </ul>
       </div>

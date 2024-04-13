@@ -190,6 +190,12 @@ img {
     cursor: pointer;
 }
 
+.novedad-tarjeta img {
+    width: 280px; /* Ancho estándar */
+    height: 200px; /* Alto estándar */
+}
+
+
 /* Estilos específicos para las flechas izquierda y derecha */
 .flecha-izquierda {
     margin-right: 10px;

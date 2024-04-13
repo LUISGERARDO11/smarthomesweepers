@@ -33,26 +33,33 @@ function CrudFAQ() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(
-        `https://apismartsweepers.vercel.app/api/faq/${id}`,
-        {
-          method: "DELETE",
+        // Mostrar alerta de confirmación antes de eliminar
+        const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar esta FAQ?");
+        if (!confirmDelete) {
+            return; // Cancelar la operación si el usuario no confirma la eliminación
         }
-      );
 
-      const data = await response.json();
+        const response = await fetch(
+            `https://apismartsweepers.vercel.app/api/faq/${id}`,
+            {
+                method: "DELETE",
+            }
+        );
 
-      if (!response.ok) {
-        throw new Error(data.message || "Error al eliminar la FAQ");
-      }
+        const data = await response.json();
 
-      alert("FAQ eliminada exitosamente");
-      setFAQs(faqs.filter(faq => faq._id !== id));
+        if (!response.ok) {
+            throw new Error(data.message || "Error al eliminar la FAQ");
+        }
+
+        alert("FAQ eliminada exitosamente");
+        setFAQs(faqs.filter(faq => faq._id !== id));
     } catch (error) {
-      console.error("Error al eliminar la FAQ:", error);
-      alert(error.message || "Error en eliminación de FAQ");
+        console.error("Error al eliminar la FAQ:", error);
+        alert(error.message || "Error en eliminación de FAQ");
     }
-  };
+};
+
 
   const handleEdit = (id) => {
     const faqEdit = faqs.find(faq => faq._id === id);
